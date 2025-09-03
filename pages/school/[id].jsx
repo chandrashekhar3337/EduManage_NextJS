@@ -12,6 +12,7 @@ export async function getServerSideProps(context) {
   };
 }
 
+
 export default function SchoolDetail({ school }) {
   
   if (!school) return <p>Loading...</p>;
