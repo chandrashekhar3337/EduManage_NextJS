@@ -2,22 +2,32 @@
   "name": "edumanage",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "dev": "next dev -p 3000",
+    "build": "next build ",
+    "start": "next start -p 3000",
     "lint": "eslint"
   },
   "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cloudinary": "^2.7.0",
+    "joi": "^18.0.1",
+    "jsonwebtoken": "^9.0.2",
+    "link": "^2.1.1",
+    "multer": "^2.0.2",
+    "mysql2": "^3.14.4",
+    "next": "15.5.2",
+    "next-connect": "^1.0.0",
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "next": "15.5.2"
+    "router": "^2.2.0"
   },
   "devDependencies": {
+    "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
-    "tailwindcss": "^4",
     "eslint": "^9",
     "eslint-config-next": "15.5.2",
-    "@eslint/eslintrc": "^3"
+    "tailwindcss": "^4"
   }
 }

@@ -1,5 +1,11 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
+import pool from '../../lib/db';
 
-export default function handler(req, res) {
-  res.status(200).json({ name: "John Doe" });
+export default async function handler(req, res) {
+  try {
+    const [rows] = await pool.query('SHOW TABLES');
+    res.status(200).json({ tables: rows });
+  } catch (err) {
+    console.error('DB error:', err);
+    res.status(500).json({ message: 'Database connection failed' });
+  }
 }
