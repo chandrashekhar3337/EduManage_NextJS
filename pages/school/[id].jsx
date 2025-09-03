@@ -1,21 +1,19 @@
 // pages/school/[id].js
-import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+export async function getServerSideProps(context) {
+  const { id } = context.params;
+  console.log("Fetching school with ID:", id);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/schools/${id}`);
+  const data = await res.json();
 
-export default function SchoolDetail() {
-  const router = useRouter();
-  const { id } = router.query;
-  console.log("School ID:", id);
-  const [school, setSchool] = useState(null);
+  return {
+    props: {
+      school: data.success ? data.data : null,
+    },
+  };
+}
 
-  useEffect(() => {
-    if (id) {
-      fetch(`/api/schools/${id}`)
-        .then(res => res.json())
-        .then(data => { if (data.success) setSchool(data.data); });
-    }
-  }, [id]);
-
+export default function SchoolDetail({ school }) {
+  
   if (!school) return <p>Loading...</p>;
     return (
     <div className="min-h-screen bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
