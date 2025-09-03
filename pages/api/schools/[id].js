@@ -1,4 +1,4 @@
-import { SchoolController } from '../../../controllers/school.controller';
+import { SchoolController } from '../../../controllers/school.controller.js';
 
 export default function handler(req, res) {
   if (req.method === 'GET') {

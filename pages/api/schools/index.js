@@ -1,6 +1,5 @@
 import { createRouter } from 'next-connect';
 import { uploadMiddleware } from '../../../middleware/upload.middleware.js';
-import { validateSchool } from '../../../middleware/validate.middleware.js';
 import { SchoolController } from '../../../controllers/school.controller.js';
 
 const handler = createRouter({
